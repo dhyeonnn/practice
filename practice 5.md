@@ -109,3 +109,89 @@ print(result)
 
 
 
+> 시각화 하기
+
+```python
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+plt.plot(result)
+plt.show()
+```
+
++ 출력결과
+
+![신림동 인구 구조](practice 5.assets/신림동 인구 구조.png)
+
+
+
+**인구 구조를 알고 싶은 지역(읍면동 단위)을 입력받아서 출력**
+
+```python
+import csv
+
+f = open('age.csv')
+data = csv.reader(f)
+result = []
+name = input('인구 구조가 알고 싶은 지역의 이름(읍면동 단위)을 입력해 주세요 : ')
+
+for row in data:
+    if name in row[0]:
+        for i in row[3:]:
+            result.append(int(i))
+            
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+plt.rc('font', family='Malgun Gothic')
+plt.title(name +' 지역의 인구 구조')
+plt.plot(result)
+plt.show()
+```
+
++ 출력결과
+
+![아름동 지역의 인구 구조](practice 5.assets/아름동 지역의 인구 구조.png)
+
+
+
+![매산동 지역의 인구 구조](practice 5.assets/매산동 지역의 인구 구조.png)
+
+
+
+![옥수동 지역의 인구 구조](practice 5.assets/옥수동 지역의 인구 구조-16482759411831.png)
+
+
+
+> 막대 그래프 그리기
+
+```python
+import csv
+
+f = open('age.csv')
+data = csv.reader(f)
+result = []
+name = input('인구 구조가 알고 싶은 지역의 이름(읍면동 단위)을 입력해 주세요 : ')
+
+for row in data:
+    if name in row[0]:
+        for i in row[3:]:
+            result.append(int(i))
+            
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+plt.rc('font', family='Malgun Gothic')
+plt.title(name +' 지역의 인구 구조')
+plt.bar(range(101), result)
+plt.show()
+```
+
++ 출력결과
+
+![아름동 지역 인구 구조 막대 그래프](practice 5.assets/아름동 지역 인구 구조 막대 그래프.png)
+
+
+
+![매산동 지역 인구 구조 막대 그래프](practice 5.assets/매산동 지역 인구 구조 막대 그래프.png)
+
+
+
+![옥수동 지역  인구 구조 막대 그래프](practice 5.assets/옥수동 지역  인구 구조 막대 그래프.png)
